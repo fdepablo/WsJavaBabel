@@ -1,5 +1,7 @@
 package main;
 
+import entidad.Prueba;
+
 public class Compania {
 	private String nombre;
 	private String direccion;
@@ -16,4 +18,6 @@ public class Compania {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}	
+	
+	
 }
