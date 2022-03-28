@@ -1,7 +1,13 @@
 package entidad;
 
-public class Persona {
+import java.io.Serializable;
+
+public class Persona implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/*
 	 * La encapsulación en java se define en 4 niveles de visibilidad y se
 	 * pueden poner en atributos y métodos
