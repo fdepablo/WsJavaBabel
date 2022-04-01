@@ -117,5 +117,7 @@ public class MainHerencia {
 			m.moverse();
 		}
 		
+		listaMovibles.forEach(m -> m.moverse());
+		
 	}
 }
