@@ -15,7 +15,7 @@ public class Fiesta {
 	//el siguiente hilo a ejecutarse
 	//OJO, al ser un metodo dinamico solo afecta a nivel de objeto, es decir, solo bloquea
 	//el objeto en cuestion
-	public synchronized void entrar(String nombrePersona,String frase1, String frase2){
+	public void entrar(String nombrePersona,String frase1, String frase2){
 		System.out.println(nombrePersona +" esta entrando en la fiesta de " + this.nombre + "!!!");
 		System.out.println("La fiesta se encuentra en: " + direccion);
 		System.out.println(nombrePersona + " is in the house!");
@@ -35,5 +35,11 @@ public class Fiesta {
 		System.out.println(frase2);
 		System.out.println(nombrePersona + " ha acabado de saludar!");
 		System.out.println();
+	}
+	
+	public void setNombre(String nombre) {
+		synchronized (this) {
+			this.nombre = nombre;
+		}
 	}
 }

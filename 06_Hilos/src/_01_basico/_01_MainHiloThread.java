@@ -12,6 +12,9 @@ public class _01_MainHiloThread {
 		_01_HiloThread hilo2 = new _01_HiloThread("Valor 2");
 		hilo2.setName("Hilo2");
 		
+		hilo2.setPriority(10);//no funciona hotspot
+		hilo1.setPriority(1);
+		
 		try {
 			//Duerme el hilo que passe por aqui durante un tiempo
 			//En este caso, siempre sera el main

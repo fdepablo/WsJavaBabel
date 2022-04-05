@@ -1,5 +1,6 @@
 package _04_waitnotify;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -52,7 +53,7 @@ public class Cola {
 				//Cuando hacemos un wait() el hilo (consumidor) se queda esperando 
 				//a que alquien le haga un notify() y acto seguido, libera el 
 				//monitor del hilo.
-				wait();
+				wait();//c2-c3
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
