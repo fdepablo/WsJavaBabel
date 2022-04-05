@@ -43,6 +43,13 @@ public class _01_Lambdas {
 				return a+b;
 			}
 		};
+		
+		InterfazDosParametros idum2 = new InterfazDosParametros() {
+			@Override
+			public Integer operacion(Integer a, Integer b) {
+				return a-b;
+			}
+		};
 	
 		InterfazUnParametro usp = new InterfazUnParametro() {
 			@Override
@@ -59,8 +66,20 @@ public class _01_Lambdas {
 		
 		//Ahoram utilizamos los objetos creados previamente
 		System.out.println("PROBANDO CLASES ANONIMAS");
-		System.out.println(idum.operacion(100, 200));
+		System.out.println(idum.operacion(300, 200));
+		System.out.println(idum2.operacion(300, 200));
 		System.out.println(usp.operacion(25));
+		System.out.println(sp.operacion());
+		
+		sp = new InterfazSinParametros() {
+			
+			@Override
+			public Integer operacion() {
+				// TODO Auto-generated method stub
+				return 200;
+			}
+		};
+		
 		System.out.println(sp.operacion());
 		
 		System.out.println("=============================================");
@@ -85,13 +104,21 @@ public class _01_Lambdas {
 		//Esto sería equivalente a la creacion de la clase anonima de más arriba
 		//Aqui se invocaría automaticamente el metodo "operacion"
 		InterfazDosParametros i1    = ( n1, n2 ) -> n1 + n2;
+		System.out.println(i1.operacion(45, 30));//75
 		InterfazDosParametros i1bis = ( n1, n2 ) -> { return n1 + n2; };
+		i1 = (n1,n2) -> n1 - n2;
+		System.out.println(i1.operacion(45, 30));//15
+		
 		
 		InterfazUnParametro    i2    = n1 -> n1 * n1;
-		InterfazUnParametro    i2bis = n1 -> { return n1 * n1; };
+		System.out.println(i2.operacion(9));//81
+		i2 = n1 -> n1 / 2;
+		System.out.println(i2.operacion(10));//5
+		InterfazUnParametro  	i2bis = n1 -> { return n1 * n1; };
 		
 		//Si no tengo parametros de entrada debemos de poner "()"
-		InterfazSinParametros      i3    = () -> 4000;
+		InterfazSinParametros      i3    = () -> 3000;
+		i3.operacion();
 		InterfazSinParametros      i3Bis = () -> { return 4000; };
 				
 		InterfazSinReturn i4    = () -> System.out.println("Sin return!");

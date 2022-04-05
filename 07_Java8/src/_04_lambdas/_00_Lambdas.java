@@ -63,6 +63,8 @@ public class _00_Lambdas {
 		};
 		
 		imprimibleFicheroLambda.imprimir("Ahora imprimo con lambda");
+		//cadena = Ahora imprimo con lambda
+		//
 		imprimiblePantallaLambda.imprimir("Ahora imprimo con lambda");
 		
 		
@@ -91,6 +93,16 @@ public class _00_Lambdas {
 		listaPalabras.forEach(s -> {
 			System.out.print("- ");
 			System.out.println(s);
+		});
+		
+		System.out.println("con clase anonima e interfaz");
+		listaPalabras.forEach(new Consumer<String>() {
+
+			@Override
+			public void accept(String s) {
+				System.out.print("- ");
+				System.out.println(s);
+			}
 		});
 		
 		System.out.println("Con consumer");
