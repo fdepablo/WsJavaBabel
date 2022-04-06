@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public class _00_Lambdas {
@@ -110,6 +113,22 @@ public class _00_Lambdas {
 		consumer.accept("pepe");		
 		
 		listaPalabras.forEach(consumer);
+		
+		Map<String, String> mapaString = new HashMap<String, String>();
+		mapaString.put("1", "Pepe");
+		mapaString.put("2", "Marta");
+		
+		
+		for (var entry : mapaString.entrySet()) {
+		    System.out.println(entry.getKey() + "/" + entry.getValue());
+		}
+		
+		mapaString.forEach((k,v) -> System.out.println(k + " " + v));
+		
+		Iterator<String> it = listaPalabras.iterator();
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
 	}
 }
 

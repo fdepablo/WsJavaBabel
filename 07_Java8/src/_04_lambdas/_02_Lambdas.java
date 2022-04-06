@@ -13,9 +13,19 @@ public class _02_Lambdas {
 	public static void main(String[] args) {
 		//Recordemos que Supplier se usa para generar objetos de un tipo sin argumentos
 		//de entrada. En este caso vamos a generar un objeto de tipo Integer
-		Supplier<Integer> sup;
+		Supplier<Integer> sup = null;
 		//La primera funcion lambda sería que siempre genere un 2, por ejemplo
 		sup = () -> 2;
+		/*
+		sup = new Supplier<Integer>() {
+			
+			@Override
+			public Integer get() {
+				// TODO Auto-generated method stub
+				return 2;
+			}
+		};*/
+		
 		Integer numero = sup.get();
 		System.out.println(numero);
 		
@@ -26,9 +36,10 @@ public class _02_Lambdas {
 		//Generar un numero aleatorio
 		sup = () -> {
 			Random rd = new Random();
-			int i = rd.nextInt(21);//aleatorio entre el 0 y el 20
+			int i = rd.nextInt(20) + 1;//aleatorio entre el 1 y el 20
 			return i;
 		};
+		
 		System.out.println(sup.get());
 		System.out.println(sup.get());
 		System.out.println(sup.get());
@@ -50,6 +61,9 @@ public class _02_Lambdas {
 		con = i -> System.out.println("El numero introducido ha sido: " + i);
 		con.accept(4);
 		con.accept(78);
+		con.accept(persona.getEdad());
+		Consumer<Object> conGenerico = o -> System.out.println(o);
+		conGenerico.accept(persona);
 		
 		Consumer<Persona> conPersona;
 		//El siguiente ejemplo tambien valdría con (p) o con (Persona p)
@@ -65,7 +79,7 @@ public class _02_Lambdas {
 		func = s -> Integer.parseInt(s);
 		Integer numero2 = func.apply("50");
 		Integer numero3 = func.apply("100");
-		System.out.println(numero3 + numero2);
+		con.accept(numero3 + numero2);
 		
 		//Funcion lambda que calcula el numero de caracteres
 		Function<String,Integer> sizeOf =  s -> s.length();
