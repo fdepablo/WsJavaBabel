@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
+import calculadora.modelo.negocio.GestorCalculadora;
+
 public class MainMaven {
 
 	public static void main(String[] args) {
@@ -17,6 +19,16 @@ public class MainMaven {
 		listaStrings.forEach(s -> System.out.println(s));
 		
 		Gson gson = new Gson();
+		
+		GestorCalculadora gp = new GestorCalculadora();
+		int resultado = gp.sumar(3, 5);
+		System.out.println(resultado);
+		
+		resultado = gp.sumarAcumulado(5);
+		System.out.println(resultado);
+		
+		resultado = gp.sumarAcumulado(10);
+		System.out.println(resultado);
 	}
 
 }
