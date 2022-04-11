@@ -8,6 +8,17 @@ import java.sql.SQLException;
 //a BBDD de todos los fabricantes de las BBDD que haya.
 public class _00_Conexion {
 
+	static {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");//hasta mysql5
+			Class.forName("com.mysql.cj.jdbc.Driver");//Mysql8
+		} catch (ClassNotFoundException e) {
+			System.out.println("No se ha encontrado el driver para MySQL");
+		}
+		
+		System.out.println("Se ha cargado el Driver de MySQL");
+	}
+	
 	public static void main(String[] args) {
 		
 		// Paso 0: Cargar el driver que se va a usar para las conexiones a la BBDD
@@ -19,14 +30,7 @@ public class _00_Conexion {
 		// antiguos (com.mysql.jdbc.Driver). A fecha actual JAVA carga automaticamente
 		// los drivers de conexión (com.mysql.cj.jdbc.Driver). Notese que sigue siendo
 		// necesario cargar el jar con las clases de conexion en el classpath de java
-		/*try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			System.out.println("No se ha encontrado el driver para MySQL");
-			return;
-		}
 		
-		System.out.println("Se ha cargado el Driver de MySQL");*/
 				
 		// Paso 1: Establecer conexión con la base de datos
 		// En la cadena de conexion podemos encontrar los siguientes valores
